@@ -14,7 +14,7 @@ class ToolsInfo(Info):
             {
                 'uuid': k,
                 'name': v.get('name'),
-                'dec': v.get('dec'),
+                'desc': v.get('desc'),
                 'tag': {_k: TypeManager.get(_v).get() for _k, _v in v.get('tag').items()},
                 'in_vars': v.get('in_vars'),
                 'out_vars': v.get('out_vars'),
@@ -32,7 +32,7 @@ class AgentsInfo(Info):
             {
                 'uuid': k,
                 'name': v.get('name'),
-                'dec': v.get('dec'),
+                'desc': v.get('desc'),
                 'in_vars': v.get('in_vars'),
                 'out_vars': v.get('out_vars'),
                 'tag': {_k: TypeManager.get(_v).get() for _k, _v in v.get('tag').items()}

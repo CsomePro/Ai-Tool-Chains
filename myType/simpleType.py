@@ -77,7 +77,7 @@ class ListToolType(Type):
     @classmethod
     def get(cls):
         return {'type': 'multi', 'value': [
-            {'value': v.get('uuid'), 'label': v.get('name'), 'dec': v.get('dec')} for k, v in
+            {'value': v.get('uuid'), 'label': v.get('name'), 'desc': v.get('desc')} for k, v in
             ToolsManager.local_tools_map.items()
         ],
                 'default': ''
@@ -101,7 +101,7 @@ class LLmUUIDType(Type):
     @classmethod
     def get(cls):
         return {'type': "option", 'value': [
-            {'value': v.get('uuid'), 'label': v.get('name'), 'dec': v.get('dec')} for k, v in
+            {'value': v.get('uuid'), 'label': v.get('name'), 'desc': v.get('desc')} for k, v in
             LLmManager.local_llm_map.items()
         ], 'default': ''}
 
