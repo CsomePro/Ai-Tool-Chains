@@ -1,5 +1,5 @@
 from toolchains.info.base import *
-from toolchains.tool import ToolsManager
+from toolchains.tool.base import ToolsManager
 from toolchains.agent import AgentsManager
 from toolchains.myType.simpleType import TypeManager
 

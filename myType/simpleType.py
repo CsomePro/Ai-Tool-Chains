@@ -1,7 +1,7 @@
 from toolchains.myType.base import Type, TypeManager, get_type_uuid_by_name
 import toolchains.myType.config as config
 from toolchains.llm.base import LLmManager
-from toolchains.tool import ToolsManager
+from toolchains.tool.base import ToolsManager
 
 
 @TypeManager.register

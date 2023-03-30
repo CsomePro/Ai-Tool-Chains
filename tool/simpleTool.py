@@ -1,5 +1,5 @@
-from toolchains import RegexType
 from toolchains.tool.base import *
+from toolchains.myType.simpleType import RegexType
 import re
 import sys
 from io import StringIO

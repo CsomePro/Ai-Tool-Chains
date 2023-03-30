@@ -7,7 +7,7 @@ from uuid import UUID, uuid3
 from toolchains.llm.base import LLmManager
 import langchain
 
-from toolchains.tool import ToolsManager, SingleInOutToolModel
+from toolchains.tool.base import ToolsManager, SingleInOutToolModel
 from toolchains.myType.simpleType import LLmUUIDType, ListToolType, AgentType
 
 AGENT_NAMESPACE = UUID("185db942-446b-45fc-87c6-513bb8d8cfea")
