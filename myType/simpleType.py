@@ -104,3 +104,20 @@ class LLmUUIDType(Type):
             {'value': v.get('uuid'), 'label': v.get('name'), 'dec': v.get('dec')} for k, v in
             LLmManager.local_llm_map.items()
         ], 'default': ''}
+
+
+@TypeManager.register
+class RegexType(Type):
+    name = locals()['__qualname__']
+    uuid = get_type_uuid_by_name(name)
+    dec = config.TYPE.STRING
+
+    @classmethod
+    def check(cls, var: int) -> bool:
+        if not isinstance(var, str):
+            return False
+        return True
+
+    @classmethod
+    def get(cls):
+        return {'type': "text", 'default': ''}

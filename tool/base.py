@@ -29,8 +29,10 @@ class ToolsManager:
 
 class ToolModel(BaseModel):
     uuid: str  # unique tools id
-    name: Optional[str] = None  # tool's name
-    dec: Optional[str] = None
+    name: str  # tool's name for human
+    desc: str
+    nfm: str  # name for model
+    dfm: str  # description for model
     # tool's description, try to make clear to AI (just like human learning the tool with dec)
     tag: dict[str, str]  # (export args name[need to be set by user])
     param: dict[str, str] = {}  # store all args

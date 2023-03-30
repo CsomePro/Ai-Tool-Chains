@@ -11,6 +11,7 @@ class OpenaiLLm(LLmFactory):
         uuid=get_llm_uuid_by_name(locals()['__qualname__']),
         tag={'temperature': FloatType.uuid},
         name='OpenAi GPT Chat',
-        dec='LLM Large Language Model from Openai')
+        desc='LLM Large Language Model from Openai',
+        nfm='OpenAi GPT Chat', dfm='LLM Large Language Model from Openai')
 
 

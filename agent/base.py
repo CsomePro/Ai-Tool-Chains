@@ -51,7 +51,7 @@ class TaskAgentModel(AgentModel):
                                                                   f"and output variable should be only one "
             tools.append(langchain.agents.Tool(
                 name=tool.name,
-                description=tool.dec,
+                description=tool.desc,
                 func=lambda x: tool.func(**{tool.in_vars[0]: x})[tool.out_vars[0]]
             ))
         self._agent = langchain.agents.initialize_agent(tools, llm.get_llm(), agent=self._args['agent'], verbose=True)

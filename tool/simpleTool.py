@@ -1,3 +1,4 @@
+from toolchains import RegexType
 from toolchains.tool.base import *
 import re
 import sys
@@ -25,10 +26,13 @@ class PythonRepl(ToolFactory):
         uuid=get_tool_uuid_by_name(locals()['__qualname__']),
         in_vars=['code'],
         out_vars=['output'], tag={},
-        name='Python_REPL', dec="A Python shell. Use this to execute python commands. "
-        "Input should be a valid python command. "
-        "If you want to see the output of a value, you should print it out "
-        "with `print(...)`." )
+        name='Python_REPL',
+        desc='Python沙盒执行环境执行环境',
+        nfm='Python_REPL',
+        dfm="A Python shell. Use this to execute python commands. "
+            "Input should be a valid python command. "
+            "If you want to see the output of a value, you should print it out "
+            "with `print(...)`.", )
 
 
 @ToolsManager.register
@@ -43,5 +47,21 @@ class RegexRepl(ToolFactory):
     tool = _Tool(
         uuid=get_tool_uuid_by_name(locals()['__qualname__']),
         in_vars=['string'],
-        out_vars=["num1", "num2"], tag={}, param={'exp': r'(?P<num1>[0-9]+),(?P<num2>[0-9]+)'},
-        name="Regex", dec='using to test')
+        out_vars=["num1", "num2"], tag={'exp': RegexType.uuid},
+        name="Regex", desc='using to test', nfm='', dfm='')  # TODO add nfm nfd
+
+
+@ToolsManager.register
+class JsonTool(ToolFactory):
+    class _Tool(ToolModel):
+        def func(self, string: str):
+            assert 'exp' in self._args
+            exp = re.compile(self._args.get('exp'))
+            match = exp.search(string)
+            return match.groupdict()
+
+    tool = _Tool(
+        uuid=get_tool_uuid_by_name(locals()['__qualname__']),
+        in_vars=['string'],
+        out_vars=["num1", "num2"], tag={'exp': RegexType.uuid},
+        name="Json", desc='using to test', nfm='', dfm='')  # TODO add nfm nfd
