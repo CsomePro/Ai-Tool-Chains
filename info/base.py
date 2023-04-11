@@ -1,11 +1,12 @@
 
 from __future__ import annotations
+from typing import Any
 
 class Info:
     name = ''
 
     @classmethod
-    def get_info(cls) -> list:
+    def get_info(cls, *args, **kwargs) -> Any:
         pass
 
 class InfoManager:

@@ -66,6 +66,9 @@ class ToolModel(BaseModel):
         self.config()
         return self
 
+    def compile(self):
+        pass
+
     def config(self):
         pass
 
